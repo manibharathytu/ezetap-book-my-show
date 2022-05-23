@@ -1,0 +1,40 @@
+<mat-toolbar>
+    <mat-icon color="primary" (click)="isShowingNav=!isShowingNav" >menu</mat-icon>&nbsp;
+    Admin portal
+    <!-- <div *ngIf="page=='movies'">
+        <mat-icon color="primary" style="margin-left:30%" >{{gpsIcon}}</mat-icon>&nbsp;Location
+        <input #location [value]="loca" (change)="changeLocation(location.value)">
+    </div> -->
+  
+    <mat-icon color="primary" (click)="toggleTopBar()" style="margin-left:80%">{{arrowSide}}</mat-icon>&nbsp;
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" [opened]="isShowingNav">
+
+        <button mat-button class="menu-button" (click)="page='dashboard'">
+            <mat-icon>dashboard</mat-icon>
+            <span>Dashboard</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" (click)="page='movies'">
+            <mat-icon>movie</mat-icon>
+            <span>Movies</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="mat-elevation-z8">
+            <!-- Main content here! -->
+            <app-dashboard-page *ngIf="page=='dashboard'"></app-dashboard-page>
+            <app-movies-list *ngIf="page=='movies'"></app-movies-list>
+        </div>
+
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

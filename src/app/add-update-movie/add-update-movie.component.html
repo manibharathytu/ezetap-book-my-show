@@ -1,0 +1,55 @@
+<!-- <p>add-update-movie works!</p> -->
+<form class="my-form">
+    <mat-form-field class="full-width">
+       <mat-label>Name</mat-label>
+       <input matInput  placeholder="Name" [value]="data.name" name="name" (change)='data.name=$event.target.value'>
+    </mat-form-field>
+    <br><!--- dont use break also -->
+    <mat-form-field class="full-width">
+       <mat-label>Cast</mat-label>
+       <input  matInput  placeholder="Cast" name="cast" [value]="data.cast" (change)='data.cast=$event.target.value'>
+    </mat-form-field> &nbsp;
+    <mat-form-field class="full-width">
+        <mat-label>Genre</mat-label>
+        <input  matInput  placeholder="Genre" name="Genre" [value]="data.genre" (change)='data.genre=$event.target.value'>
+     </mat-form-field>&nbsp;
+     <mat-form-field class="full-width">
+        <mat-label>Language</mat-label>
+        <input  matInput  placeholder="Language" name="Language" [value]="data.lang" (change)='data.lang=$event.target.value'>
+     </mat-form-field>
+     <br>
+     <br>
+     <br>
+    <b>Theatres.</b> &nbsp;
+     <!-- <button mat-raised-button color="primary" (click)="data.theatres.push({name:'',timing:'',location:'',price:''})">Add Theatre</button> -->
+    <mat-icon (click)="data.theatres.push({name:'',timing:'',location:'',price:''});">add</mat-icon>
+    <br>
+    <br>
+     <!-- <div style="overflow:scroll"> -->
+     <div *ngFor="let theatre of data.theatres" >
+        <mat-form-field class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput  placeholder="Name" [value]="theatre.name" name="name" (change)='theatre.name=$event.target.value'>
+         </mat-form-field>
+         <mat-icon (click)="delete(theatre)">delete</mat-icon>
+         <br>
+         <mat-form-field class="full-width">
+            <mat-label>Timings</mat-label>
+            <input  matInput  placeholder="Timings" name="timing" [value]="theatre.timing" (change)='theatre.timing=$event.target.value'>
+         </mat-form-field> &nbsp;
+         <mat-form-field class="full-width">
+             <mat-label>Location</mat-label>
+             <input  matInput  placeholder="Location" name="location" [value]="theatre.location" (change)='theatre.location=$event.target.value'>
+          </mat-form-field>&nbsp;
+          <mat-form-field class="full-width">
+             <mat-label>Price</mat-label>
+             <input  matInput  placeholder="Price" name="price" [value]="theatre.price" (change)='theatre.price=$event.target.value'>
+          </mat-form-field>
+          <br>
+          <br>
+     </div>
+    <!-- </div> -->
+ </form>
+ <p *ngIf="errMsg" style="color:red">Please fill all the fields</p>
+
+ <button mat-raised-button color="primary" (click)="addMovie()">{{addOrUpdate}}</button>
