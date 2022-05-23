@@ -1,0 +1,26 @@
+<!-- <div>
+   <div > -->
+<!-- #todo: no use of style inline -->
+<mat-card class="my-card" style="width: 30%;  margin-left: 35%;  margin-top: 15%;">
+   <mat-card-content>
+      <form class="my-form">
+         <mat-form-field class="full-width">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" name="uname" (change)='uname=$event.target.value'>
+         </mat-form-field>
+         <br>
+         <!--- #todo: dont use break also -->
+         <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" name="password" (change)='pwd=$event.target.value'>
+         </mat-form-field>
+      </form>
+      <p *ngIf="errorMsg" style="color:red">Bad username and password</p>
+   </mat-card-content>
+   <mat-card-actions>
+      <button mat-raised-button (click)="login()" color="primary">LOGIN</button>
+      <button mat-raised-button (click)="routeToLandingPage()" color="white">BACK</button>
+   </mat-card-actions>
+</mat-card>
+<!-- </div>
+</div> -->

@@ -11,11 +11,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule, MatInputModule, MatNativeDateModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
-import { LandingPageComponent } from './dialogs/landing-page/landing-page.component';
+import { LandingPageComponent } from './main-routes/landing-page/landing-page.component';
 
 import { RouterModule } from '@angular/router';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
+import { LoginPageComponent } from './main-routes/login-page/login-page.component';
+import { TopBarComponent } from './nav-bars/top-bar/top-bar.component';
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -27,8 +27,8 @@ import { MatCardModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
-import { AdminPortalComponent } from './admin-portal/admin-portal.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
+import { AdminPortalComponent } from './main-routes/admin-portal/admin-portal.component';
+import { SidenavComponent } from './nav-bars/sidenav/sidenav.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardPageComponent } from './main-pages/dashboard-page/dashboard-page.component';
 import { MatMenuModule } from '@angular/material/menu';
@@ -48,7 +48,7 @@ import { MatAutocompleteModule } from '@angular/material';
 // import { ToastrModule } from 'ngx-toastr';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { ShowDetailsComponent } from './dialogs/show-details/show-details.component';
-import { DatePickerComponent } from './date-picker/date-picker.component';
+import { DatePickerComponent } from './util-helper/date-picker/date-picker.component';
 
 // import{DialogContentExampleDialog} from './test/test.component'
 

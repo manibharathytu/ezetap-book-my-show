@@ -13,26 +13,18 @@ export class AddUpdateMovieComponent implements OnInit {
 
   errMsg: boolean;
 
-  addOrUpdate:string;
+  addOrUpdate: string;
 
-  // name: string;
-  // cast: string;
-  // genre: string;
-  // language: string;
 
   constructor(public dialog: MatDialog, private dialogRef: MatDialogRef<AddUpdateMovieComponent>, @Inject(MAT_DIALOG_DATA) data) {
     this.data = data;
-    if(data.name==''){this.addOrUpdate='Add Movie'}
-    else{this.addOrUpdate='Update Movie'}
+    if (data.name == '') { this.addOrUpdate = 'Add Movie' }
+    else { this.addOrUpdate = 'Update Movie' }
   }
 
-  close() {
-    console.log(this.data);
-    this.dialogRef.close({ data: 'data asdf' });
-  }
+
 
   addMovie() {
-    // console.log(this.name)
 
     if (
       // this.name === undefined || this.cast === undefined || this.genre === undefined || this.language === undefined ||
@@ -40,23 +32,13 @@ export class AddUpdateMovieComponent implements OnInit {
       this.errMsg = true;
       return
     }
-    // this.data.name = this.name
-    // this.data.cast = this.cast
-    // this.data.genre = this.genre
-    // this.data.lang = this.language
-    // this.data.theatres = [];
 
-    console.log('this.data')
-    console.log(this.data)
     this.dialogRef.close({ data: this.data });;
 
   }
 
-  delete(theatre){
-    // console.log('this.data');;
-    console.log(this.data);
-    this.data.theatres = this.data.theatres.filter(x=>x.name!=theatre.name);;
-    console.log(this.data)
+  delete(theatre) {
+    this.data.theatres = this.data.theatres.filter(x => x.name != theatre.name);;
   }
 
   ngOnInit() {

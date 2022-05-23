@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppService } from '../appservice.service';
+import { AppService } from '../../appservice.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -13,13 +13,11 @@ export class TopBarComponent implements OnInit {
   isLoggedIn: string;
   buttonText: string;
   currentPage: string;
-  showTopBar:string='true';
+  showTopBar: string = 'true';
 
   constructor(private router: Router, private appservice: AppService, private http: HttpClient) { }
 
-  ngOnInit() {
-    this.buttonText = 'Login'
-
+  isLoggedInCheck() {
     this.http.post<any>("https://localhost/isLoggedIn", {}, { withCredentials: true })
       .subscribe(
         data => {
@@ -27,50 +25,38 @@ export class TopBarComponent implements OnInit {
           if (data.result == 'suc') {
             this.appservice.changeLoginState("loggedIn");
             this.router.navigateByUrl("/admin");
-
-
           }
           else {
             this.appservice.changeLoginState("loggedOut");
-            this.router.navigateByUrl("/"); // cant navigate to login page directly cos of this 
-            this.showTopBar='true';
-
+            if (this.router.url !== '/login')
+              this.router.navigateByUrl("/"); // #bug: cant navigate to login page url directly because of this 
+            this.showTopBar = 'true';
           }
-
         }
-        // // console.log
-
       )
+  }
 
+  subscribeToDataSharing() {
     this.appservice.loginState.subscribe(msg => {
-      console.log(msg)
-      console.log('login state')
       this.isLoggedIn = msg;
       if (msg == 'loggedIn') {
         this.buttonText = 'Logout'
-        console.log('logout.')
       }
-      // else if(msg=='loggedOut'){
-      //   this
-      // }
-
     });
 
     this.appservice.currentPage.subscribe(msg => {
-      console.log(msg)
-      console.log('cur page')
       this.currentPage = msg;
-    
-
     });
 
     this.appservice.topBar.subscribe(msg => {
-      console.log('top bar change...')
-      console.log(msg);
       this.showTopBar = msg;
-    
-
     });
+  }
+  ngOnInit() {
+    this.buttonText = 'Login'
+
+    this.isLoggedInCheck()
+    this.subscribeToDataSharing()
 
   }
   onClickLogin() {
@@ -89,20 +75,13 @@ export class TopBarComponent implements OnInit {
               this.router.navigateByUrl("/");
               this.isLoggedIn = "loggedOut"
               this.buttonText = 'Login'
-
-
             }
             else {
-              // this.appservice.changeLoginState("loggedOut");
-
+              // #todo
+              // logout fail toast msg
             }
-
           }
-          // // console.log
-
         )
-
     }
-    // this.appservice.changeLoginState("loginPage");
   }
 }
