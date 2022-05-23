@@ -19,7 +19,7 @@ export class SidenavComponent implements OnInit {
   constructor(private appService: AppService) { }
 
   ngOnInit() {
-    this.page = 'movies';
+    this.page = 'dashboard';
     this.isShowingNav = false;
 
     this.topBar = false;
