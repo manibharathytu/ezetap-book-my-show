@@ -4,7 +4,7 @@
   Location : 
   <input matInput #location [value]="loca" (change)="changeLocation(location.value)"> -->
   <!-- <button mat-flat-button color="primary" >Add Movie</button> -->
-  <app-date-picker style="margin-left:10%"></app-date-picker>
+  <app-date-picker style="margin-left:20%;"></app-date-picker>
   <mat-form-field style="margin-left:10%" appearance="fill">
     <!-- <mat-icon color="primary"  >{{gpsIcon}}</mat-icon>&nbsp; -->
 
@@ -15,7 +15,7 @@
   </mat-form-field>
   <mat-icon color="primary" style="margin-left: -30px;">{{gpsIcon}}</mat-icon>&nbsp;
 
-  <button mat-flat-button color="primary" style="margin-left:10%" (click)="onClickAddMovie()">Add Movie</button>
+  <!-- <button mat-flat-button color="primary" style="margin-left:10%" (click)="onClickAddMovie()">Add Movie</button> -->
   <p *ngIf="errLocation" style="color:red;margin-left: 44%;">Please enter location</p>
   <!-- <app-date-picker></app-date-picker> -->
   <!-- <form class="example-form">
@@ -38,7 +38,7 @@
 </div>
 <br />
 
-
+<div style="padding: 10px;;">
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -125,7 +125,8 @@
   <ng-container matColumnDef="button">
     <th mat-header-cell *matHeaderCellDef>
       <mat-icon (click)="toggleFilter()">{{filterIcon}}</mat-icon>
-      <mat-icon (click)="fetchAndFillMoviesData();;" style="margin-left:20%;">update</mat-icon>
+      <mat-icon (click)="fetchAndFillMoviesData();" style="margin-left:20%;">update</mat-icon>
+      <mat-icon (click)="onClickAddMovie();" style="margin-left:20%;">add</mat-icon>
 
 
 
@@ -139,7 +140,7 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
+</div>
 <!-- <button (click)="filter('name','dhoom')">filter</button>
   <button (click)="sort('genre')">sort</button>
 

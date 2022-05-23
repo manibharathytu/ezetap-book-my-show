@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule, MatInputModule, MatNativeDateModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LandingPageComponent } from './dialogs/landing-page/landing-page.component';
 
 import { RouterModule } from '@angular/router';
 import { LoginPageComponent } from './login-page/login-page.component';
@@ -30,26 +30,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminPortalComponent } from './admin-portal/admin-portal.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
-import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
+import { DashboardPageComponent } from './main-pages/dashboard-page/dashboard-page.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MoviesPageComponent } from './movies-page/movies-page.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { MoviesListComponent } from './movies-list/movies-list.component';
+import { MoviesListComponent } from './main-pages/movies-list/movies-list.component';
 import { ChartsModule } from 'ng2-charts';
-import { LineChartComponent } from './line-chart/line-chart.component';
-import { BarChartComponent } from './bar-chart/bar-chart.component';
-import { DoughnutChartComponent } from './doughnut-chart/doughnut-chart.component';
-import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { LineChartComponent } from './chart-components/line-chart/line-chart.component';
+import { BarChartComponent } from './chart-components/bar-chart/bar-chart.component';
+import { DoughnutChartComponent } from './chart-components/doughnut-chart/doughnut-chart.component';
+import { PieChartComponent } from './chart-components/pie-chart/pie-chart.component';
 
 import { MatAutocompleteModule } from '@angular/material';
-import { TestComponent } from './test/test.component';
 
 // import { ToastrModule } from 'ngx-toastr';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
-import { ShowDetailsComponent } from './show-details/show-details.component';
+import { ShowDetailsComponent } from './dialogs/show-details/show-details.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 
 // import{DialogContentExampleDialog} from './test/test.component'
@@ -57,7 +55,7 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
 // import { TestModule } from './test/test.module';
 
 import { MatDatepickerModule } from '@angular/material';
-import { AddUpdateMovieComponent } from './add-update-movie/add-update-movie.component';
+import { AddUpdateMovieComponent } from './dialogs/add-update-movie/add-update-movie.component';
 
 @NgModule({
   declarations: [
@@ -69,17 +67,14 @@ import { AddUpdateMovieComponent } from './add-update-movie/add-update-movie.com
     SidenavComponent,
     // DashboardComponent,
     DashboardPageComponent,
-    MoviesPageComponent,
     MoviesListComponent,
     LineChartComponent,
     BarChartComponent,
     DoughnutChartComponent,
     PieChartComponent,
-    TestComponent,
     ShowDetailsComponent,
-    DatePickerComponent,
     AddUpdateMovieComponent,
-
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +104,7 @@ import { AddUpdateMovieComponent } from './add-update-movie/add-update-movie.com
         ]
       },
       { path: '', component: LandingPageComponent },
-      { path: 'test', component: TestComponent },
+      // { path: 'test', component: TestComponent },
     ]),
     MatGridListModule,
     MatMenuModule,
@@ -125,6 +120,6 @@ import { AddUpdateMovieComponent } from './add-update-movie/add-update-movie.com
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [TestComponent, ShowDetailsComponent, AddUpdateMovieComponent]
+  entryComponents: [ShowDetailsComponent, AddUpdateMovieComponent]
 })
 export class AppModule { }

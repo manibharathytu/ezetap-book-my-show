@@ -2,9 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from "@angular/material";
-import { AddUpdateMovieComponent } from '../add-update-movie/add-update-movie.component';
-import { ShowDetailsComponent } from '../show-details/show-details.component';
-import { TestComponent } from '../test/test.component';
+import { AddUpdateMovieComponent } from '../../dialogs/add-update-movie/add-update-movie.component';
+import { ShowDetailsComponent } from '../../dialogs/show-details/show-details.component';
 export interface PeriodicElement {
   name: string;
   cast: string;
