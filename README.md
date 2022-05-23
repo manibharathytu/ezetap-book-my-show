@@ -3,11 +3,11 @@
 Open terminal and enter following commands.
 
 1. git clone https://github.com/manibharathytu/ezetap-book-my-show.git
-3. cd ezetap-book-my-show
+2. cd ezetap-book-my-show
 
 3. npm i
 
-4. sudo npm start
+4. npm start
 
 
 
