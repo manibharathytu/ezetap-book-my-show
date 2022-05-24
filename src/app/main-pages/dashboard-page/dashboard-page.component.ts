@@ -8,34 +8,32 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './dashboard-page.component.html',
   styleUrls: ['./dashboard-page.component.scss']
 })
-export class DashboardPageComponent implements OnInit{
-  // compname:string;
-  pieChartLabels:any;
-  pieChartData:any;
-  doughnutChartLabels:any;
-  doughnutChartData:any;
-  lineChartData:any;
-  lineChartLabels:any;
-  barChartLabels:any;
-  barChartData:any;
+export class DashboardPageComponent implements OnInit {
+  pieChartLabels: any;
+  pieChartData: any;
+  doughnutChartLabels: any;
+  doughnutChartData: any;
+  lineChartData: any;
+  lineChartLabels: any;
+  barChartLabels: any;
+  barChartData: any;
 
-  ngOnInit(){
+  ngOnInit() {
 
-    this.http.post<any>("https://localhost/getStats", {'op':'find', data:{}}, { withCredentials: true })
-    .subscribe(
-      data => {
-        console.log(data)
-      this.pieChartLabels=data[0].popGenre.Labels
-      this.pieChartData=data[0].popGenre.tickets
+    this.http.post<any>("https://localhost/getStats", { 'op': 'find', data: {} }, { withCredentials: true })
+      .subscribe(
+        data => {
+          this.pieChartLabels = data[0].popGenre.Labels
+          this.pieChartData = data[0].popGenre.tickets
 
+          console.log(this.pieChartLabels, this.pieChartData)
+        }
+      )
 
-      }
-    )
-
-    this.pieChartLabels=['SciFi', ['Drama'], 'Comedy']
-    this.pieChartData=[30, 50, 20]
-    this.doughnutChartLabels=['Morning', 'Evening', 'Night', 'Afternoon']
-    this.doughnutChartData=[
+    this.pieChartLabels = ['SciFi', ['Drama'], 'Comedy']
+    this.pieChartData = [30, 50, 20]
+    this.doughnutChartLabels = ['Morning', 'Evening', 'Night', 'Afternoon']
+    this.doughnutChartData = [
       [30000, 50000, 30000, 5000],
       [25000, 55000, 20000, 10000],
       [20000, 60000, 10000, 20000]
@@ -49,34 +47,34 @@ export class DashboardPageComponent implements OnInit{
     ];
     this.lineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June'];
 
-    this.barChartLabels = ['Ironman', 'Kgf 2', 'Dhoom', 'Avengers', ]; //[colspan]="2" [rowspan]="1"
-  this.barChartData = [
-    { data: [45000, 37000, 60000, 70000], label: 'Morning show' },
-    { data: [90000, 77000, 64000, 50000], label: 'Evening show' },
-    { data: [10000, 17000, 14000, 10000], label: 'Night show' },
-  ];
+    this.barChartLabels = ['Ironman', 'Kgf 2', 'Dhoom', 'Avengers',]; //[colspan]="2" [rowspan]="1"
+    this.barChartData = [
+      { data: [45000, 37000, 60000, 70000], label: 'Morning show' },
+      { data: [90000, 77000, 64000, 50000], label: 'Evening show' },
+      { data: [10000, 17000, 14000, 10000], label: 'Night show' },
+    ];
 
   }
-  /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
-      }
+  // /** Based on the screen size, switch from standard to one column per row */
+  // cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+  //   map(({ matches }) => {
+  //     if (matches) {
+  //       return [
+  //         { title: 'Card 1', cols: 1, rows: 1 },
+  //         { title: 'Card 2', cols: 1, rows: 1 },
+  //         { title: 'Card 3', cols: 1, rows: 1 },
+  //         { title: 'Card 4', cols: 1, rows: 1 }
+  //       ];
+  //     }
 
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
-    })
-  );
+  //     return [
+  //       { title: 'Card 1', cols: 2, rows: 1 },
+  //       { title: 'Card 2', cols: 1, rows: 1 },
+  //       { title: 'Card 3', cols: 1, rows: 2 },
+  //       { title: 'Card 4', cols: 1, rows: 1 }
+  //     ];
+  //   })
+  // );
 
-  constructor(private breakpointObserver: BreakpointObserver, private http:HttpClient) {}
+  constructor(private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 }
