@@ -92,15 +92,9 @@ import { AdminToolBarComponent } from './navs-and-bars/admin-tool-bar/admin-tool
     MatDatepickerModule,
     MatNativeDateModule,
 
-    RouterModule.forRoot([
-      { path: 'login', component: LoginPageComponent },
-      {
-        path: 'admin', component: AdminPortalComponent,
-        children: [
-        ]
-      },
-      { path: '', component: LandingPageComponent },
-    ]),
+    // RouterModule.forRoot([
+     
+    // ]),
     MatGridListModule,
     MatMenuModule,
     LayoutModule,
