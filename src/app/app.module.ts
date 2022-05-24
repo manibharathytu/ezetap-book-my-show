@@ -29,7 +29,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminPortalComponent } from './main-routes/admin-portal/admin-portal.component';
 import { SidenavComponent } from './navs-and-bars/sidenav/sidenav.component';
-// import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardPageComponent } from './main-pages/dashboard-page/dashboard-page.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -45,14 +44,11 @@ import { PieChartComponent } from './chart-components/pie-chart/pie-chart.compon
 
 import { MatAutocompleteModule } from '@angular/material';
 
-// import { ToastrModule } from 'ngx-toastr';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ShowDetailsComponent } from './dialogs/show-details/show-details.component';
 import { DatePickerComponent } from './util-helper/date-picker/date-picker.component';
 
-// import{DialogContentExampleDialog} from './test/test.component'
 
-// import { TestModule } from './test/test.module';
 
 import { MatDatepickerModule } from '@angular/material';
 import { AddUpdateMovieComponent } from './dialogs/add-update-movie/add-update-movie.component';
@@ -66,7 +62,6 @@ import { AdminToolBarComponent } from './navs-and-bars/admin-tool-bar/admin-tool
     TopBarComponent,
     AdminPortalComponent,
     SidenavComponent,
-    // DashboardComponent,
     DashboardPageComponent,
     MoviesListComponent,
     LineChartComponent,
@@ -96,17 +91,15 @@ import { AdminToolBarComponent } from './navs-and-bars/admin-tool-bar/admin-tool
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    
+
     RouterModule.forRoot([
       { path: 'login', component: LoginPageComponent },
       {
         path: 'admin', component: AdminPortalComponent,
         children: [
-        //  { path: 'dashboard', component: DashboardComponent}
         ]
       },
       { path: '', component: LandingPageComponent },
-      // { path: 'test', component: TestComponent },
     ]),
     MatGridListModule,
     MatMenuModule,
@@ -118,10 +111,11 @@ import { AdminToolBarComponent } from './navs-and-bars/admin-tool-bar/admin-tool
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatDialogModule
-    // ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [ShowDetailsComponent, AddUpdateMovieComponent]
 })
 export class AppModule { }
+
+// #todo :remove unused modules n imports
