@@ -73,7 +73,6 @@ export class MoviesListComponent {
   currentSortAsc: boolean;
 
   loca: string;
-  // date: string;
   gpsIcon: string;
 
   errLocation: boolean = false;
@@ -85,18 +84,9 @@ export class MoviesListComponent {
 
     const dialogConfig = new MatDialogConfig();
 
-    // dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%"
 
-    // dialogConfig.data = {
-    //   name: '',
-    //   cast: '',
-    //   genre: '',
-    //   lang: '',
-    //   theatres: []
-    // }
-    // this.dialog.open(TestComponent, dialogConfig);
 
     dialogConfig.data=movie;
 
@@ -118,7 +108,6 @@ export class MoviesListComponent {
 
     const dialogConfig = new MatDialogConfig();
 
-    // dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%"
 
@@ -131,7 +120,6 @@ export class MoviesListComponent {
         {name:'',timing:'',location:'',price:''}
       ]
     }
-    // this.dialog.open(TestComponent, dialogConfig);
 
     let dialogRef = this.dialog.open(AddUpdateMovieComponent, dialogConfig).afterClosed()
       .subscribe(response => {
@@ -149,12 +137,10 @@ export class MoviesListComponent {
 
     const dialogConfig = new MatDialogConfig();
 
-    // dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%"
 
     dialogConfig.data = data
-    // this.dialog.open(TestComponent, dialogConfig);
 
     let dialogRef = this.dialog.open(ShowDetailsComponent, dialogConfig).afterClosed()
       .subscribe(response => {
@@ -181,14 +167,7 @@ export class MoviesListComponent {
 
         this.changeLocation('') // gps should work here
 
-        // this.changeDate();
 
-
-        // this.pieChartLabels=data[0].popGenre.Labels
-        // this.pieChartData=data[0].popGenre.tickets
-
-        // // this.lineChartLabels=data[0].siteUseData.Labels
-        // // this.lineChartData=data[0].popGenre.tickets
 
 
 
@@ -207,7 +186,6 @@ export class MoviesListComponent {
     this.currentSortAsc = false
     this.sort('name')
 
-    // location.value
 
   }
 
@@ -218,11 +196,9 @@ export class MoviesListComponent {
   }
 
   sort(column) {
-    // this.currentSortCol= column
-    // this.currentSortAsc= column
+
 
     this.dataSource = [];
-    // console.log(MOVIE_DATA)
     let num = 1
 
 
@@ -230,18 +206,16 @@ export class MoviesListComponent {
     else { this.currentSortAsc = true }
     MOVIE_DATA.sort((a, b) => a[column] > b[column] ? num : -num);
 
-    // console.log(MOVIE_DATA)
-    setTimeout(() => { this.dataSource = MOVIE_DATA }, 100) // have to find a better way
+    setTimeout(() => { this.dataSource = MOVIE_DATA }, 100) // #todo: have to find a better way
 
     this.currentSortCol = column
-    // this.currentSortAsc = column
   }
 
   viewDetails(name) {
     console.log(name)
     if (this.loca == '') {
       this.errLocation = true;
-      // throw err msg to choose loca
+      // #todo: throw err msg to choose loca - toast notif
       return
     }
     let showsData = (MOVIE_DATA.filter(x => x.name == name))[0].theatres.filter(x => x.location == this.loca)
@@ -268,7 +242,6 @@ export class MoviesListComponent {
       this.dataSource = MOVIE_DATA
       return
     }
-    // this.loca = location;
     this.gpsIcon = 'gps_fixed'
     this.errLocation = false;;
 
@@ -284,15 +257,7 @@ export class MoviesListComponent {
 
   }
 
-  //   changeDate(){
-  //     var today = new Date();
-  // var dd = String(today.getDate())
-  // var mm = String(today.getMonth() + 1)//January is 0!
-  // var yyyy = today.getFullYear();
-
-  // this.date = mm + '/' + dd + '/' + yyyy;
-
-  //   }
+ 
 
   deleteMovie(movieName) {
     this.http.post<any>("https://localhost/crud", { 'op': 'delete', data: { name: movieName } }, { withCredentials: true })
@@ -325,25 +290,7 @@ export class MoviesListComponent {
     this.http.post<any>("https://localhost/crud", { 'op': 'update', 'data': {name:movieData.name}, newData:movieData }, { withCredentials: true })
       .subscribe(
         data => {
-          // console.log(data)
-          // if (data.result ==
-          //   'suc') {
-          //   movieData['button'] = ''
-          //   movieData['noOfLoc'] = movieData['theatres'].length;
-          //   console.log('MOVIE_DATA');;;
-          //   console.log(MOVIE_DATA);;
-          //   MOVIE_DATA.push(movieData)
-          //   console.log(MOVIE_DATA);;
-
-          //   this.dataSource = [];
-          //   // this.dataSource = MOVIE_DATA;
-          //   console.log('this.dataSource');;
-          //   console.log(this.dataSource);;
-
-          //   setTimeout(() => { this.dataSource = MOVIE_DATA }, 100) // have to find a better way
-
-          // }
-
+          
 
         }
 
@@ -369,7 +316,6 @@ export class MoviesListComponent {
             console.log(MOVIE_DATA);;
 
             this.dataSource = [];
-            // this.dataSource = MOVIE_DATA;
             console.log('this.dataSource');;
             console.log(this.dataSource);;
 
