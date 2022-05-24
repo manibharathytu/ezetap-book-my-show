@@ -25,7 +25,6 @@ export class LoginPageComponent implements OnInit {
     this.http.post<any>("https://localhost/isLoggedIn", {}, { withCredentials: true })
       .subscribe(
         data => {
-          console.log(data)
           if (data.result == 'suc') {
             this.appservice.changeLoginState("loggedIn");
             this.router.navigateByUrl("/admin");
@@ -56,22 +55,18 @@ export class LoginPageComponent implements OnInit {
   }
 
   login() {
-    console.log(this.uname, this.pwd)
-    console.log(this.http)
     if (!this.validate()) {
       return
     }
     this.http.post<any>("https://localhost/login", { uname: this.uname, pwd: this.pwd }, { withCredentials: true })
       .subscribe(
         data => {
-          console.log(data)
           if (data.result == 'suc') {
             this.appservice.changeLoginState("loggedIn");
             this.router.navigateByUrl("/admin");
 
           }
           else{
-            console.log('enters')
             this.errorMsg=true;
           }
 
