@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from '../../apps-data-sharing.service';
 import { HttpClient } from '@angular/common/http';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { LoginPageComponent } from 'src/app/main-routes/login-page/login-page.component';
 
 @Component({
   selector: 'app-top-bar',
@@ -15,7 +17,7 @@ export class TopBarComponent implements OnInit {
   currentPage: string;
   showTopBar: boolean = true;
 
-  constructor(private router: Router, private appservice: AppService, private http: HttpClient) { }
+  constructor(private router: Router, private appservice: AppService, private http: HttpClient, private dialog: MatDialog) { }
 
   isLoggedInCheck() {
     this.http.post<any>("https://localhost/isLoggedIn", {}, { withCredentials: true })
@@ -60,28 +62,41 @@ export class TopBarComponent implements OnInit {
     this.subscribeToDataSharing()
 
   }
-  
-  onClickLogin() {
-    if (this.isLoggedIn == 'loggedOut') {
-      this.router.navigateByUrl("/login");
-      this.isLoggedIn = "loginPage"
-    }
-    else {
-      this.http.post<any>("https://localhost/logout", {}, { withCredentials: true })
-        .subscribe(
-          data => {
-            console.log(data)
-            if (data.result == 'suc') {
-              this.router.navigateByUrl("/");
-              this.isLoggedIn = "loggedOut"
-              this.buttonText = 'Login'
-            }
-            else {
-              // #todo
-              // logout fail toast msg
-            }
-          }
-        )
-    }
+  openLoginDialog() {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "30%"
+
+
+    let dialogRef = this.dialog.open(LoginPageComponent, dialogConfig)
+
+
   }
+
+onClickLoginOrLogout() {
+  if (this.isLoggedIn == 'loggedOut') {
+    // this.router.navigateByUrl("/login");
+    this.openLoginDialog()
+    // this.isLoggedIn = "loginPage";;
+  }
+  else {
+    this.http.post<any>("https://localhost/logout", {}, { withCredentials: true })
+      .subscribe(
+        data => {
+          console.log(data)
+          if (data.result == 'suc') {
+            this.router.navigateByUrl("/");
+            this.isLoggedIn = "loggedOut"
+            this.buttonText = 'Login'
+          }
+          else {
+            // #todo
+            // logout fail toast msg
+          }
+        }
+      )
+  }
+}
 }

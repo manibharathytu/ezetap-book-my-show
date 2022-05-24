@@ -8,7 +8,7 @@ import { LoginPageComponent } from './main-routes/login-page/login-page.componen
 
 const routes: Routes = [
 
-  { path: 'login', component: LoginPageComponent },
+  // { path: 'login', component: LoginPageComponent },
   {
     path: 'admin', component: AdminPortalComponent,
     children: [

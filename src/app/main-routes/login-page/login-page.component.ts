@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AppService } from '../../apps-data-sharing.service';
-import { validateHorizontalPosition } from '@angular/cdk/overlay';
+// import { validateHorizontalPosition } from '@angular/cdk/overlay';
+import { MatDialogRef } from "@angular/material";
 
 
 @Component({
@@ -17,10 +18,10 @@ export class LoginPageComponent implements OnInit {
   errorMsg: Boolean;
 
 
-  constructor(private http: HttpClient, private router: Router, private appservice: AppService) { }
+  constructor(private http: HttpClient, private router: Router, private appservice: AppService, private dialogRef: MatDialogRef <LoginPageComponent>) { }
 
   ngOnInit() {
-    this.appservice.changeCurrentPage("loginPage");
+    // this.appservice.changeCurrentPage("loginPage");
 
     this.http.post<any>("https://localhost/isLoggedIn", {}, { withCredentials: true })
       .subscribe(
@@ -28,6 +29,7 @@ export class LoginPageComponent implements OnInit {
           if (data.result == 'suc') {
             this.appservice.changeLoginState("loggedIn");
             this.router.navigateByUrl("/admin");
+            
 
 
           }
@@ -44,7 +46,8 @@ export class LoginPageComponent implements OnInit {
   }
 
   routeToLandingPage() {
-    this.router.navigateByUrl("/");
+    // this.router.navigateByUrl("/");
+    this.dialogRef.close();;
 
   }
 
@@ -63,6 +66,8 @@ export class LoginPageComponent implements OnInit {
         data => {
           if (data.result == 'suc') {
             this.appservice.changeLoginState("loggedIn");
+            this.dialogRef.close();;
+
             this.router.navigateByUrl("/admin");
 
           }

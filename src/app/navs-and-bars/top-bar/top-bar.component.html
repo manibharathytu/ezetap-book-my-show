@@ -1,7 +1,7 @@
 <div *ngIf="showTopBar">
     <div style="display:inline">
         <img src="https://i.imgur.com/9KjrKPU.png" style="width:17%;height:5%">
-        <button mat-flat-button (click)="onClickLogin()" color="primary" style="margin-left: 75%;    bottom: 15px;"
+        <button mat-flat-button (click)="onClickLoginOrLogout()" color="primary" style="margin-left: 75%;    bottom: 15px;"
             *ngIf="currentPage != 'loginPage' ">{{buttonText}}</button>
     </div>
 </div>
