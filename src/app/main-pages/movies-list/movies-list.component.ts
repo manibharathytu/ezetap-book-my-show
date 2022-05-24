@@ -123,8 +123,6 @@ export class MoviesListComponent {
 
     let dialogRef = this.dialog.open(AddUpdateMovieComponent, dialogConfig).afterClosed()
       .subscribe(response => {
-        console.log('response');
-        console.log(response);
         this.addMovie(response.data)
 
 
@@ -144,8 +142,6 @@ export class MoviesListComponent {
 
     let dialogRef = this.dialog.open(ShowDetailsComponent, dialogConfig).afterClosed()
       .subscribe(response => {
-        console.log('response');
-        console.log(response);
       });
 
   }
@@ -154,9 +150,6 @@ export class MoviesListComponent {
     this.http.post<any>("https://localhost/crud", { 'op': 'find', data: {} }, { withCredentials: true })
     .subscribe(
       data => {
-        console.log('resad data')
-        console.log(data)
-        console.log('read data');
         MOVIE_DATA = data
 
         MOVIE_DATA = MOVIE_DATA.map((movie) => { movie['button'] = ''; return movie; }) // just for the table button
@@ -190,7 +183,6 @@ export class MoviesListComponent {
   }
 
   filter(col, val) {
-    console.log(col, val);
     if (val == '') return;;
     this.dataSource = MOVIE_DATA.filter((movie) => movie[col] == val);
   }
@@ -212,14 +204,12 @@ export class MoviesListComponent {
   }
 
   viewDetails(name) {
-    console.log(name)
     if (this.loca == '') {
       this.errLocation = true;
       // #todo: throw err msg to choose loca - toast notif
       return
     }
     let showsData = (MOVIE_DATA.filter(x => x.name == name))[0].theatres.filter(x => x.location == this.loca)
-    console.log(showsData)
     this.openDialog(showsData)
   }
 
@@ -234,7 +224,6 @@ export class MoviesListComponent {
   }
 
   changeLocation(location) {
-    console.log('change loca')
     this.loca = location;
 
     if (location == '') {
@@ -263,15 +252,12 @@ export class MoviesListComponent {
     this.http.post<any>("https://localhost/crud", { 'op': 'delete', data: { name: movieName } }, { withCredentials: true })
       .subscribe(
         data => {
-          console.log(data)
           if (data.result ==
             'suc') {
             MOVIE_DATA = <any>MOVIE_DATA.filter((movie) => movie.name != movieName)
-            console.log(MOVIE_DATA);;
 
             // this.dataSource = [];
             this.dataSource = <any>this.dataSource.filter((movie) => { return movie.name != movieName; })
-            console.log(this.dataSource);;
           }
 
 
@@ -282,9 +268,6 @@ export class MoviesListComponent {
   updateMovie(movieData){
 
     delete movieData['_id'];;;
-    console.log('movieData')
-    console.log(movieData)
-    console.log('movieData')
 
     // can send only the changed area, thats better?
     this.http.post<any>("https://localhost/crud", { 'op': 'update', 'data': {name:movieData.name}, newData:movieData }, { withCredentials: true })
@@ -299,25 +282,17 @@ export class MoviesListComponent {
 
 
   addMovie(movieData) {
-    console.log('movieData')
-    console.log(movieData)
     this.http.post<any>("https://localhost/crud", { 'op': 'insert', 'data': movieData }, { withCredentials: true })
       .subscribe(
         data => {
-          console.log(data)
           if (data.result ==
             'suc') {
             movieData['button'] = ''
             movieData['icon'] = ''
             movieData['noOfLoc'] = movieData['theatres'].length;
-            console.log('MOVIE_DATA');;;
-            console.log(MOVIE_DATA);;
             MOVIE_DATA.push(movieData)
-            console.log(MOVIE_DATA);;
 
             this.dataSource = [];
-            console.log('this.dataSource');;
-            console.log(this.dataSource);;
 
             setTimeout(() => { this.dataSource = MOVIE_DATA }, 100) // have to find a better way
 
