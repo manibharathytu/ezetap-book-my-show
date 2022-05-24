@@ -15,7 +15,7 @@ import { LandingPageComponent } from './main-routes/landing-page/landing-page.co
 
 import { RouterModule } from '@angular/router';
 import { LoginPageComponent } from './main-routes/login-page/login-page.component';
-import { TopBarComponent } from './nav-bars/top-bar/top-bar.component';
+import { TopBarComponent } from './navs-and-bars/top-bar/top-bar.component';
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -28,7 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AdminPortalComponent } from './main-routes/admin-portal/admin-portal.component';
-import { SidenavComponent } from './nav-bars/sidenav/sidenav.component';
+import { SidenavComponent } from './navs-and-bars/sidenav/sidenav.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardPageComponent } from './main-pages/dashboard-page/dashboard-page.component';
 import { MatMenuModule } from '@angular/material/menu';
@@ -56,6 +56,7 @@ import { DatePickerComponent } from './util-helper/date-picker/date-picker.compo
 
 import { MatDatepickerModule } from '@angular/material';
 import { AddUpdateMovieComponent } from './dialogs/add-update-movie/add-update-movie.component';
+import { AdminToolBarComponent } from './navs-and-bars/admin-tool-bar/admin-tool-bar.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { AddUpdateMovieComponent } from './dialogs/add-update-movie/add-update-m
     PieChartComponent,
     ShowDetailsComponent,
     AddUpdateMovieComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    AdminToolBarComponent
   ],
   imports: [
     BrowserModule,
