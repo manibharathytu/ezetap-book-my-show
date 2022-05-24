@@ -23,7 +23,7 @@ export interface Theatre {
 
 let MOVIE_DATA: PeriodicElement[] = [
   {
-    name: 'ironman sklfjsladk fjlaskdf', cast: 'rdj', genre: 'scifi', lang: 'english',
+    name: 'ironman', cast: 'rdj', genre: 'scifi', lang: 'english',
     theatres: [
       { name: 'pvr', timing: '2:30, 3:30 ', location: 'bangalore', price: 120 },
       { name: 'escape', timing: '16:30', location: 'chennai', price: 120 },
@@ -37,19 +37,7 @@ let MOVIE_DATA: PeriodicElement[] = [
       { name: 'escape', timing: '1:30', location: 'chennai', price: 120 },
       { name: 'urvasi', timing: '8:00', location: 'bangalore', price: 120 },
     ]
-  },
-  // { name: 'dhoom', cast: 'hrithik roshan, aishwarya rai', genre: 'adventure', lang: 'hindi' },
-
-  // { name: 'ironman', cast: 'rdj', genre: 'scifi', lang: 'english' },
-  // { name: 'kgf 2', cast: 'yash', genre: 'action', lang: 'tamil' },
-  // { name: 'dhoom', cast: 'hrithik roshan, aishwarya rai', genre: 'adventure', lang: 'hindi' },
-  // { name: 'ironman', cast: 'rdj', genre: 'scifi', lang: 'english' },
-  // { name: 'kgf 2', cast: 'yash', genre: 'action', lang: 'tamil' },
-  // { name: 'dhoom', cast: 'hrithik roshan, aishwarya rai', genre: 'adventure', lang: 'hindi' },
-  // { name: 'ironman', cast: 'rdj', genre: 'scifi', lang: 'english' },
-  // { name: 'kgf 2', cast: 'yash', genre: 'action', lang: 'tamil' },
-  // { name: 'dhoom', cast: 'hrithik roshan, aishwarya rai', genre: 'adventure', lang: 'hindi' },
-
+  }
 ];
 
 /**
