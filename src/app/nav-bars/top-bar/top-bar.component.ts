@@ -52,6 +52,7 @@ export class TopBarComponent implements OnInit {
       this.showTopBar = msg;
     });
   }
+
   ngOnInit() {
     this.buttonText = 'Login'
 
@@ -59,9 +60,8 @@ export class TopBarComponent implements OnInit {
     this.subscribeToDataSharing()
 
   }
+  
   onClickLogin() {
-    console.log('asdf')
-    console.log(this.isLoggedIn)
     if (this.isLoggedIn == 'loggedOut') {
       this.router.navigateByUrl("/login");
       this.isLoggedIn = "loginPage"
