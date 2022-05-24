@@ -19,23 +19,5 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit() {
     this.page = 'dashboard';
-
-
-    this.changeLocation('bangalore') // gps should work here
   }
-
-
-
-  changeLocation(location) {
-    this.loca = location;
-
-    if (location == '') {
-      this.gpsIcon = 'gps_not_fixed'
-      return
-    }
-    // this.loca = location;
-    this.gpsIcon = 'gps_fixed'
-
-  }
-
 }
