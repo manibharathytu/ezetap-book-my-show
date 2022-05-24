@@ -1,8 +1,4 @@
-<mat-toolbar>
-    <mat-icon color="primary" (click)="isShowingNav=!isShowingNav" style="cursor:pointer;" >menu</mat-icon>&nbsp;
-    Admin portal
-    <mat-icon color="primary" (click)="toggleTopBar()" style="margin-left:80%;cursor:pointer;">{{arrowSide}}</mat-icon>&nbsp;
-</mat-toolbar>
+<app-admin-tool-bar></app-admin-tool-bar>
 <app-sidenav [isShowingNav]="isShowingNav"></app-sidenav>
 <!-- <router-outlet></router-outlet>  -->
 <!-- <app-dashboard-page></app-dashboard-page> -->
