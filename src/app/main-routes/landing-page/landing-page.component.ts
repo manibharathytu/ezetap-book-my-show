@@ -23,29 +23,9 @@ export class LandingPageComponent implements OnInit {
 
     let header_node = {
       headers: new HttpHeaders(
-        // { 'Accept': 'application/json' },
         { 'rejectUnauthorized': 'false' })
     };
 
-    // this.http.post<any>("https://localhost/isLoggedIn", {}, { withCredentials: true })
-    //   .subscribe(
-    //     data => {
-    //       console.log(data)
-    //       if (data.result == 'suc') {
-    //         this.appservice.changeLoginState("loggedIn");
-    //         this.router.navigateByUrl("/admin");
-
-
-    //       }
-    //       else {
-    //         this.appservice.changeLoginState("loggedOut");
-
-    //       }
-
-    //     }
-    //     // // console.log
-
-    //   )
 
     this.img_urls = [
       //   "https://posterspy.com/wp-content/uploads/2022/01/Avatar-The-Way-Of-Water.jpg",
@@ -59,24 +39,12 @@ export class LandingPageComponent implements OnInit {
       "https://wallpaperaccess.com/full/1076854.jpg",
       "https://i.pinimg.com/originals/be/d6/3e/bed63e4fa1a1be8cea48b3c630218778.jpg",
       "https://www.teahub.io/photos/full/67-670663_hollywood-movie-poster-hd.jpg"
-
-
-
     ];
 
     this.url = "https://www.teahub.io/photos/full/67-670663_hollywood-movie-poster-hd.jpg";
     setInterval(() => {
-      console.log('change img')
-      console.log(this.url)
-      console.log(this.img_urls);
       var imgNo = Math.floor(Math.random() * this.img_urls.length)
-      console.log(imgNo)
       this.url = this.img_urls[imgNo]
-    }, 5000)
-
-    // 
+    }, 5000) //#todo: have to use carousel component
   }
-
-  // changeImg()
-
 }
