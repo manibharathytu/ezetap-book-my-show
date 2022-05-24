@@ -1,18 +1,11 @@
 <div class="grid-container">
   <h1 class="mat-h1">Stats</h1>
   <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile [colspan]="1" [rowspan]="1" >
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
             App stats
-            <!-- <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu> -->
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
@@ -28,19 +21,13 @@
         <mat-card-header>
           <mat-card-title>
             Popular showtime
-            <!-- <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu> -->
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <!-- <div>Card Content Here</div> -->
-          <!-- <app-line-chart></app-line-chart> -->
-          <app-doughnut-chart [doughnutChartLabels]="doughnutChartLabels" [doughnutChartData]="doughnutChartData"></app-doughnut-chart>
+
+          <app-doughnut-chart [doughnutChartLabels]="doughnutChartLabels" [doughnutChartData]="doughnutChartData">
+          </app-doughnut-chart>
 
         </mat-card-content>
       </mat-card>
@@ -52,18 +39,12 @@
         <mat-card-header>
           <mat-card-title>
             Popular movies
-            <!-- <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu> -->
+
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <!-- <div>Card Content Here</div> -->
-          <!-- <app-line-chart></app-line-chart> -->
+
           <app-bar-chart [barChartData]="barChartData" [barChartLabels]="barChartLabels"></app-bar-chart>
 
         </mat-card-content>
@@ -75,18 +56,12 @@
         <mat-card-header>
           <mat-card-title>
             Popular genre
-            <!-- <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu> -->
+
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <!-- <div>Card Content Here</div> -->
-          <!-- <app-line-chart></app-line-chart> -->
+
           <app-pie-chart [pieChartLabels]="pieChartLabels" [pieChartData]="pieChartData"></app-pie-chart>
 
         </mat-card-content>
@@ -95,7 +70,3 @@
 
   </mat-grid-list>
 </div>
-
-
-
-

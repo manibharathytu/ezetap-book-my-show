@@ -28,14 +28,8 @@ export class DashboardPageComponent implements OnInit{
       this.pieChartLabels=data[0].popGenre.Labels
       this.pieChartData=data[0].popGenre.tickets
 
-      // this.lineChartLabels=data[0].siteUseData.Labels
-      // this.lineChartData=data[0].popGenre.tickets
-
-
 
       }
-      // // console.log
-
     )
 
     this.pieChartLabels=['SciFi', ['Drama'], 'Comedy']
@@ -61,7 +55,6 @@ export class DashboardPageComponent implements OnInit{
     { data: [90000, 77000, 64000, 50000], label: 'Evening show' },
     { data: [10000, 17000, 14000, 10000], label: 'Night show' },
   ];
-// this.compname='<app-bar-chart></app-bar-chart>'
 
   }
   /** Based on the screen size, switch from standard to one column per row */
