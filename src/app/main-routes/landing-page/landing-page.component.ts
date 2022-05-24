@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AppService } from '../../appservice.service';
+import { AppService } from '../../apps-data-sharing.service';
 import { Router } from '@angular/router';
 
 

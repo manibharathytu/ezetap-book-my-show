@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { AppService } from '../../appservice.service';
+import { AppService } from '../../apps-data-sharing.service';
 
 @Component({
   selector: 'app-sidenav',
