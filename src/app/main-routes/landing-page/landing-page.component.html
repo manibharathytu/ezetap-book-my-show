@@ -1,124 +1,77 @@
-<!-- <p>landing-page works!</p> -->
-
 <mat-drawer-container>
-    <!-- <mat-drawer #drawer [mode]="isShowHideFlag">
-      <mat-icon aria-hidden="false" class="close" (click)="drawer.toggle()">close</mat-icon>
-      <br>
-      <h1>W3hubs</h1>
-      <mat-list role="list">
-        <mat-list-item role="listitem"><a mat-button>Link 1</a></mat-list-item>
-        <mat-list-item role="listitem"><a mat-button>Link 2 </a></mat-list-item>
-        <mat-list-item role="listitem"><a mat-button>Link 3</a></mat-list-item>
-        <mat-list-item role="listitem"><a mat-button>Link 4</a></mat-list-item>
-      </mat-list>
-    </mat-drawer> -->
-    <mat-drawer-content style="overflow: hidden;">
-      <!-- <mat-toolbar class="nav">
-        <mat-list role="list">
-          <mat-list-item role="listitem"><a mat-button>Link 1</a></mat-list-item>
-          <mat-list-item role="listitem"><a mat-button>Link 2 </a></mat-list-item>
-          <mat-list-item role="listitem"><a mat-button>Link 3</a></mat-list-item>
-          <mat-list-item role="listitem"><a mat-button>Link 4</a></mat-list-item>
-        </mat-list>
-      </mat-toolbar> -->
- 
+  <mat-drawer-content style="overflow: hidden;">
 
-      <div class="silder" [ngStyle]="{'background-image': 'url(' + url + ')'}"> 
-      
-        <mat-icon aria-hidden="false" aria-label="Example home icon" class="desktop-hide" (click)="drawer.toggle()">
-          reorder
-        </mat-icon>
-        <!-- <div class="silder-content">
-          <h1 style="color:black">Book your FDFS Now!</h1>
-        </div> -->
-      </div>
-      <div class="features">
-        <div class="row">
-          <div class="column">
-            <mat-icon aria-hidden="false" aria-label="Example home icon">loyalty</mat-icon>
-            <h3>No Extra Fee</h3>
-            <!-- <p>Hit the ground running with comprehensive, modern UI components that work across the web, mobile, and
-              desktop.
-            </p> -->
-          </div>
-          <div class="column">
-            <mat-icon aria-hidden="false" aria-label="Example home icon">mouse</mat-icon>
-            <h3>Book with 3 clicks</h3>
-            <!-- <p>Finely tuned performance, because every millisecond counts. Fully tested across modern browsers.
-            </p> -->
-          </div>
-          <div class="column">
-            <mat-icon aria-hidden="false" aria-label="Example home icon">language</mat-icon>
-            <h3>30 cities
-            </h3>
-            <!-- <p>Built by the Angular team to integrate seamlessly with Angular. so that all users are welcome.
-            </p> -->
-          </div>
+    <div class="silder" [ngStyle]="{'background-image': 'url(' + url + ')'}">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" class="desktop-hide" (click)="drawer.toggle()">
+        reorder
+      </mat-icon>
+    </div>
+
+    <div class="features">
+      <div class="row">
+        <div class="column">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">loyalty</mat-icon>
+          <h3>No Extra Fee</h3>
+
+        </div>
+        <div class="column">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">mouse</mat-icon>
+          <h3>Book with 3 clicks</h3>
+
+        </div>
+        <div class="column">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">language</mat-icon>
+          <h3>30 cities
+          </h3>
+
         </div>
       </div>
-       <div class="contents">
-        <h2>Why Book It Now
-        </h2>
-        <div class="row">
-          <div class="column center-content">
-            <h3>Zero fees
-            </h3>
-            <p>No extra fees. No hidden fees. Pay only the ticket price.
-            </p>
-          </div>
-          <div class="column">
-            <img src="https://i.imgur.com/jCQ3kEa.png">
-          </div>
+    </div>
+    <div class="contents">
+      <h2>Why Book It Now
+      </h2>
+      <div class="row">
+        <div class="column center-content">
+          <h3>Zero fees
+          </h3>
+          <p>No extra fees. No hidden fees. Pay only the ticket price.
+          </p>
         </div>
-        <div class="row">
-          <div class="column">
-            <img src="https://i.imgur.com/yi7RVEB.png">
-          </div>
-          <div class="column center-content">
-            <h3>Quick book
-            </h3>
-            <p>Choose theatre, choose movie, Click seats. Voila! You got your ticket. Pay in the theatre.
-            </p>
-          </div>
+        <div class="column">
+          <img src="https://i.imgur.com/jCQ3kEa.png">
         </div>
-        <div class="row">
-          <div class="column center-content">
-            <h3>Global</h3>
-            <p>Book in over 30 cities all around India.
-            </p>
-          </div>
-          <div class="column">
-            <img src="https://media.istockphoto.com/photos/network-connections-world-map-polygon-graphic-background-with-lines-picture-id1192803561?k=20&m=1192803561&s=612x612&w=0&h=J2RzMB96oc_D3yj7RYGh0c26S5Jxo0eOrb8U3tNyGRM=">
-          </div>
-        </div>
-        <div class="row">
-          <!-- <div class="column">
-            <img src="https://unsplash.com/photos/Fi-GJaLRGKc/download?force=true">
-          </div> -->
-          <!-- <div class="column center-content">
-            <h3>Angular Material Tables
-            </h3>
-            <p>This table builds on the foundation of the CDK data-table and uses a similar interface for its data input
-              and template.
-            </p>
-          </div> -->
-        </div>
-      </div> 
-      <!-- <div class="contactus">
-        <h2>Subscribe now To get Updates</h2>
-        <form>
-          <mat-form-field appearance="fill">
-            <mat-label>Subscribe</mat-label>
-            <input matInput>
-          </mat-form-field>
-          <button mat-flat-button>Subscribe Now</button>
-        </form>
-      </div> -->
-      <div class="footer" color="primary">
-        <mat-toolbar color="primary">
-          <span>BookItNow.com</span>
-          <!-- <span>Bangalore</span> -->
-        </mat-toolbar>
       </div>
-    </mat-drawer-content>
-  </mat-drawer-container>
+      <div class="row">
+        <div class="column">
+          <img src="https://i.imgur.com/yi7RVEB.png">
+        </div>
+        <div class="column center-content">
+          <h3>Quick book
+          </h3>
+          <p>Choose theatre, choose movie, Click seats. Voila! You got your ticket. Pay in the theatre.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column center-content">
+          <h3>Global</h3>
+          <p>Book in over 30 cities all around India.
+          </p>
+        </div>
+        <div class="column">
+          <img
+            src="https://media.istockphoto.com/photos/network-connections-world-map-polygon-graphic-background-with-lines-picture-id1192803561?k=20&m=1192803561&s=612x612&w=0&h=J2RzMB96oc_D3yj7RYGh0c26S5Jxo0eOrb8U3tNyGRM=">
+        </div>
+      </div>
+      <div class="row">
+
+      </div>
+    </div>
+
+    <div class="footer" color="primary">
+      <mat-toolbar color="primary">
+        <span>BookItNow.com</span>
+      </mat-toolbar>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
