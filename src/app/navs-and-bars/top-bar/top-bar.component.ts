@@ -13,7 +13,7 @@ export class TopBarComponent implements OnInit {
   isLoggedIn: string;
   buttonText: string;
   currentPage: string;
-  showTopBar: string = 'true';
+  showTopBar: boolean = true;
 
   constructor(private router: Router, private appservice: AppService, private http: HttpClient) { }
 
@@ -30,7 +30,7 @@ export class TopBarComponent implements OnInit {
             this.appservice.changeLoginState("loggedOut");
             if (this.router.url !== '/login')
               this.router.navigateByUrl("/"); // #bug: cant navigate to login page url directly because of this 
-            this.showTopBar = 'true';
+            this.showTopBar = true;
           }
         }
       )

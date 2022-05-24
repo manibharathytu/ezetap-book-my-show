@@ -7,12 +7,14 @@ import { BehaviorSubject } from 'rxjs';
 export class AppService {
     loginState: BehaviorSubject<string>;
     currentPage: BehaviorSubject<string>;
-    topBar: BehaviorSubject<string>;
+    topBar: BehaviorSubject<boolean>;
+    sideNav: BehaviorSubject<boolean>;
     constructor() {
 
         this.loginState = new BehaviorSubject("loggedOut");
         this.currentPage = new BehaviorSubject("landingPage");
-        this.topBar = new BehaviorSubject("true");
+        this.topBar = new BehaviorSubject(true);
+        this.sideNav = new BehaviorSubject(true);
 
     }
 
@@ -24,7 +26,11 @@ export class AppService {
         this.currentPage.next(msg)
     }
 
-    changeTopBar(msg: string) {
-        this.topBar.next(msg);;
+    changeTopBar(msg: boolean) {
+        this.topBar.next(msg);
+    }
+
+    changeSideNav(msg: boolean) {
+        this.sideNav.next(msg);
     }
 }
