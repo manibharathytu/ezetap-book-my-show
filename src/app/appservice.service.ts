@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
- 
+
 @Injectable({
     providedIn: 'root'
 })
@@ -9,29 +9,22 @@ export class AppService {
     currentPage: BehaviorSubject<string>;
     topBar: BehaviorSubject<string>;
     constructor() {
- 
+
         this.loginState = new BehaviorSubject("loggedOut");
         this.currentPage = new BehaviorSubject("landingPage");
         this.topBar = new BehaviorSubject("true");
-        
+
     }
- 
-    changeLoginState(msg:string) {
-        console.log('changeLoginState')
-        console.log(msg)
+
+    changeLoginState(msg: string) {
         this.loginState.next(msg);
-        console.log('changeLoginState ends')
-
     }
 
-    changeCurrentPage(msg:string){
+    changeCurrentPage(msg: string) {
         this.currentPage.next(msg)
-
     }
 
-    changeTopBar(msg:string){
-        console.log('change top bar.')
+    changeTopBar(msg: string) {
         this.topBar.next(msg);;
-
     }
 }
