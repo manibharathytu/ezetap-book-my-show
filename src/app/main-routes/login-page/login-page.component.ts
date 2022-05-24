@@ -34,12 +34,10 @@ export class LoginPageComponent implements OnInit {
           }
           else {
             this.appservice.changeLoginState("loggedOut");
-            // this.isLoggedIn = 'loggedOut'
 
           }
 
         }
-        // // console.log
 
       )
 
