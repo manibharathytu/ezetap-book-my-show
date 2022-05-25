@@ -108,7 +108,7 @@ import { AdminToolBarComponent } from './navs-and-bars/admin-tool-bar/admin-tool
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ShowDetailsComponent, AddUpdateMovieComponent]
+  entryComponents: [ShowDetailsComponent, AddUpdateMovieComponent, LoginPageComponent]
 })
 export class AppModule { }
 
