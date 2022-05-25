@@ -20,6 +20,16 @@ export class DashboardPageComponent implements OnInit {
 
   ngOnInit() {
 
+    this.setDonutChartData();
+    this.setLineChartData();
+    this.setBarChartData();
+    this.setPieChartData();
+
+
+    // setTimeout(this.setDonutChartData, 10000) // this timeout set chart data is also not working for the same reson as api data update 
+
+
+    //#todo : the bottom code is not working. updating the chart data later is not updating in ui 
     this.http.post<any>("https://localhost/getStats", { 'op': 'find', data: {} }, { withCredentials: true })
       .subscribe(
         data => {
@@ -27,18 +37,24 @@ export class DashboardPageComponent implements OnInit {
           this.pieChartData = data[0].popGenre.tickets
 
           console.log(this.pieChartLabels, this.pieChartData)
+
+
+          // this.pieChartLabels = ['SciFi', ['Drama'], 'Comedy']
+          // this.pieChartData = [30, 50, 20];
         }
       )
 
+  }
+
+
+  setPieChartData() {
     this.pieChartLabels = ['SciFi', ['Drama'], 'Comedy']
     this.pieChartData = [30, 50, 20]
-    this.doughnutChartLabels = ['Morning', 'Evening', 'Night', 'Afternoon']
-    this.doughnutChartData = [
-      [30000, 50000, 30000, 5000],
-      [25000, 55000, 20000, 10000],
-      [20000, 60000, 10000, 20000]
+  }
 
-    ];
+
+
+  setLineChartData() {
     this.lineChartData = [
       { data: [85000, 72000, 78000, 75000, 77000, 75000], label: 'No of tickets sold' },
       { data: [50000, 46000, 50000, 35000, 40000, 50000], label: 'No of booking orders' },
@@ -47,6 +63,11 @@ export class DashboardPageComponent implements OnInit {
     ];
     this.lineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June'];
 
+  }
+
+
+
+  setBarChartData() {
     this.barChartLabels = ['Ironman', 'Kgf 2', 'Dhoom', 'Avengers',]; //[colspan]="2" [rowspan]="1"
     this.barChartData = [
       { data: [45000, 37000, 60000, 70000], label: 'Morning show' },
@@ -55,6 +76,17 @@ export class DashboardPageComponent implements OnInit {
     ];
 
   }
+  setDonutChartData() {
+    this.doughnutChartLabels = ['Morning', 'Evening', 'Night', 'Afternoon']
+    this.doughnutChartData = [
+      [30000, 50000, 30000, 5000],
+      [25000, 55000, 20000, 10000],
+      [20000, 60000, 10000, 20000]
+
+    ];
+  }
+
+
   // /** Based on the screen size, switch from standard to one column per row */
   // cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
   //   map(({ matches }) => {
