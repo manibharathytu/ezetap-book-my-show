@@ -135,7 +135,7 @@ export class MoviesListComponent {
   }
 
   fetchAndFillMoviesData(){
-    this.http.post<any>("https://localhost/crud", { 'op': 'find', data: {} }, { withCredentials: true })
+    this.http.post<any>("https://ec2-34-220-8-225.us-west-2.compute.amazonaws.com/crud", { 'op': 'find', data: {} }, { withCredentials: true })
     .subscribe(
       data => {
         MOVIE_DATA = data
@@ -237,7 +237,7 @@ export class MoviesListComponent {
  
 
   deleteMovie(movieName) {
-    this.http.post<any>("https://localhost/crud", { 'op': 'delete', data: { name: movieName } }, { withCredentials: true })
+    this.http.post<any>("https://ec2-34-220-8-225.us-west-2.compute.amazonaws.com/crud", { 'op': 'delete', data: { name: movieName } }, { withCredentials: true })
       .subscribe(
         data => {
           if (data.result ==
@@ -258,7 +258,7 @@ export class MoviesListComponent {
     delete movieData['_id'];;;
 
     // can send only the changed area, thats better?
-    this.http.post<any>("https://localhost/crud", { 'op': 'update', 'data': {name:movieData.name}, newData:movieData }, { withCredentials: true })
+    this.http.post<any>("https://ec2-34-220-8-225.us-west-2.compute.amazonaws.com/crud", { 'op': 'update', 'data': {name:movieData.name}, newData:movieData }, { withCredentials: true })
       .subscribe(
         data => {
           
@@ -270,7 +270,7 @@ export class MoviesListComponent {
 
 
   addMovie(movieData) {
-    this.http.post<any>("https://localhost/crud", { 'op': 'insert', 'data': movieData }, { withCredentials: true })
+    this.http.post<any>("https://ec2-34-220-8-225.us-west-2.compute.amazonaws.com/crud", { 'op': 'insert', 'data': movieData }, { withCredentials: true })
       .subscribe(
         data => {
           if (data.result ==

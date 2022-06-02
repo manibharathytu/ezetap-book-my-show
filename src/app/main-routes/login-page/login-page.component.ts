@@ -23,7 +23,7 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {
     // this.appservice.changeCurrentPage("loginPage");
 
-    this.http.post<any>("https://localhost/isLoggedIn", {}, { withCredentials: true })
+    this.http.post<any>("https://ec2-34-220-8-225.us-west-2.compute.amazonaws.com/isLoggedIn", {}, { withCredentials: true })
       .subscribe(
         data => {
           if (data.result == 'suc') {
@@ -61,7 +61,7 @@ export class LoginPageComponent implements OnInit {
     if (!this.validate()) {
       return
     }
-    this.http.post<any>("https://localhost/login", { uname: this.uname, pwd: this.pwd }, { withCredentials: true })
+    this.http.post<any>("https://ec2-34-220-8-225.us-west-2.compute.amazonaws.com/login", { uname: this.uname, pwd: this.pwd }, { withCredentials: true })
       .subscribe(
         data => {
           if (data.result == 'suc') {

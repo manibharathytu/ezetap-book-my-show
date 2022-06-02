@@ -20,7 +20,7 @@ export class TopBarComponent implements OnInit {
   constructor(private router: Router, private appservice: AppService, private http: HttpClient, private dialog: MatDialog) { }
 
   isLoggedInCheck() {
-    this.http.post<any>("https://localhost/isLoggedIn", {}, { withCredentials: true })
+    this.http.post<any>("https://ec2-34-220-8-225.us-west-2.compute.amazonaws.com/isLoggedIn", {}, { withCredentials: true })
       .subscribe(
         data => {
           console.log(data)
@@ -82,7 +82,7 @@ onClickLoginOrLogout() {
     // this.isLoggedIn = "loginPage";;
   }
   else {
-    this.http.post<any>("https://localhost/logout", {}, { withCredentials: true })
+    this.http.post<any>("https://ec2-34-220-8-225.us-west-2.compute.amazonaws.com/logout", {}, { withCredentials: true })
       .subscribe(
         data => {
           console.log(data)

@@ -30,7 +30,7 @@ export class DashboardPageComponent implements OnInit {
 
 
     //#todo : the bottom code is not working. updating the chart data later is not updating in ui 
-    this.http.post<any>("https://localhost/getStats", { 'op': 'find', data: {} }, { withCredentials: true })
+    this.http.post<any>("https://ec2-34-220-8-225.us-west-2.compute.amazonaws.com/getStats", { 'op': 'find', data: {} }, { withCredentials: true })
       .subscribe(
         data => {
           this.pieChartLabels = data[0].popGenre.Labels
